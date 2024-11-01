@@ -1,6 +1,7 @@
 package garment;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 class Garment {
@@ -50,6 +51,75 @@ class Supplier {
 
     List<Fabric> getSuppliedFabrics() {
         return suppliedFabric;
+    }
+}
+
+class Order {
+
+    public String orderId;
+    public Date orderDate;
+    public List<Garment> garments = new ArrayList<>();
+    private double totalAmount;
+
+    void addGarment(Garment garment) {
+        garments.add(garment);
+    }
+
+    double calculateTotalAmount() {
+        for (Garment g : garments) {
+            totalAmount = totalAmount + g.price;
+        }
+        return totalAmount;
+    }
+
+    void printOrderDetails() {
+        System.out.println("--------------------------");
+        System.out.println("Order Details");
+        System.out.println("--------------------------");
+        for (Garment g : garments) {
+            System.out.println("Name: " + g.name);
+            System.out.println("Price: " + g.price);
+            System.out.println("Description: " + g.description);
+            System.out.println("--------------------------");
+        }
+    }
+}
+
+class Customer {
+
+    public String customerId;
+    public String name;
+    public String email;
+    public String phone;
+
+    void placeOrder(Order order) {
+        order.printOrderDetails();
+        System.out.println("Order Placed");
+    }
+
+//    List<Order> viewOrders() {
+//        
+//    }
+}
+
+class Inventory {
+
+    List<Garment> garments;
+
+    void addGarment(Garment garment) {
+        garments.add(garment);
+    }
+
+    void removeGarment(String id) {
+        garments.remove(id);
+    }
+
+    Garment findGarment(String id) {
+        for (Garment g : garments) {
+            if(g.id == id)
+                return g;
+        }
+        return null;
     }
 }
 public class system {
