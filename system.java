@@ -1,7 +1,7 @@
 package garment;
 
-public class system {
-    
+class Garment {
+
     public String id;
     public String name;
     public String description;
@@ -18,7 +18,22 @@ public class system {
         double discount = price * (discountPercentage / 100);
         return discount;
     }
+}
 
+class Fabric {
+
+    public String id;
+    public String type;
+    public String color;
+    public double pricePerMeter;
+
+    double calculateCost(double meters) {
+        double newPrice = pricePerMeter * meters;
+        return newPrice;
+    }
+}
+
+public class system {
     public static void main(String[] args) {
         // TODO code application logic here
     }
