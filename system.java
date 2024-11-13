@@ -167,6 +167,10 @@ public class system {
         Garment g2 = new Garment("G001", "Silk Shirt", "Comfortable and stylish", "M", "Blue", 45.99, 100);
         Garment g3 = new Garment("G002", "Cotton T-Shirt", "Soft and breathable", "L", "White", 25.99, 200);
       
+        Inventory inventory = new Inventory();
+        inventory.addGarment(g1);
+        inventory.addGarment(g2);
+        
         double x = g1.calculateDiscountPrice(10);
         System.out.println(x);
     }
