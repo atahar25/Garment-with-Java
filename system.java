@@ -164,9 +164,9 @@ class Inventory {
 public class system {
     public static void main(String[] args) {
         Garment g1 = new Garment("G001", "AM Net Ltd.", "High-quality", "M", "M",100, 500);
-        g1.name = "Silk";
-        g1.description = "Good Product";
-        g1.price= 600;
+        Garment g2 = new Garment("G001", "Silk Shirt", "Comfortable and stylish", "M", "Blue", 45.99, 100);
+        Garment g3 = new Garment("G002", "Cotton T-Shirt", "Soft and breathable", "L", "White", 25.99, 200);
+      
         double x = g1.calculateDiscountPrice(10);
         System.out.println(x);
     }
