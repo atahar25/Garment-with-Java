@@ -41,6 +41,14 @@ class Fabric {
     public String type;
     public String color;
     public double pricePerMeter;
+    
+     // Constructor
+    public Fabric(String id, String type, String color, double pricePerMeter) {
+        this.id = id;
+        this.type = type;
+        this.color = color;
+        this.pricePerMeter = pricePerMeter;
+    }
 
     double calculateCost(double meters) {
         double newPrice = pricePerMeter * meters;
@@ -55,6 +63,15 @@ class Supplier {
     public String contactInfo;
     //List
     List<Fabric> suppliedFabric = new ArrayList<>();
+    
+    // Constructor
+    public Supplier(String id, String name, String contactInfo) {
+        this.id = id;
+        this.name = name;
+        this.contactInfo = contactInfo;
+        this.suppliedFabric = new ArrayList<>();
+    }
+
 
     void addFabric(Fabric fabric) {
         suppliedFabric.add(fabric);
@@ -71,6 +88,13 @@ class Order {
     public Date orderDate;
     public List<Garment> garments = new ArrayList<>();
     private double totalAmount;
+    
+    // Constructor
+    public Order(String orderId) {
+        this.orderId = orderId;
+        this.orderDate = new Date();  // Set the current date
+        this.garments = new ArrayList<>();
+    }
 
     void addGarment(Garment garment) {
         garments.add(garment);
@@ -102,15 +126,19 @@ class Customer {
     public String name;
     public String email;
     public String phone;
+    
+    // Constructor
+    public Customer(String customerId, String name, String email, String phone) {
+        this.customerId = customerId;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
 
     void placeOrder(Order order) {
         order.printOrderDetails();
         System.out.println("Order Placed");
     }
-
-//    List<Order> viewOrders() {
-//        
-//    }
 }
 
 class Inventory {
@@ -135,7 +163,7 @@ class Inventory {
 }
 public class system {
     public static void main(String[] args) {
-        Garment g1 = new Garment();
+        Garment g1 = new Garment("G001", "AM Net Ltd.", "High-quality", "M", "M",100, 500);
         g1.name = "Silk";
         g1.description = "Good Product";
         g1.price= 600;
